@@ -3,7 +3,7 @@
    ===================================================================== */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 :root {
   --bg: #111111;
   --bg-2: #191919;
@@ -234,7 +234,8 @@ button { font: inherit; cursor: pointer; }
 .about-text p { color: #ccc; font-size: .95rem; margin-bottom: 14px; }
 .why { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
 @media (min-width: 860px) { .why { grid-template-columns: repeat(4, 1fr); } }
-.why-item { background: var(--bg-card); border-top: 2px solid var(--accent); border-radius: 4px; padding: 18px 16px; }
+@media (max-width: 359px) { .why { grid-template-columns: 1fr; } }   /* smallest phones: one box per row */
+.why-item { min-width: 0; overflow-wrap: break-word; background: var(--bg-card); border-top: 2px solid var(--accent); border-radius: 4px; padding: 18px 16px; }
 .why-item h3, .step h3, .requirements h3 { font-size: .85rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 6px; }
 .why-item p, .step p { font-size: .82rem; color: var(--muted); }
 .steps { display: grid; gap: 14px; }
@@ -261,8 +262,9 @@ button { font: inherit; cursor: pointer; }
 /* ----- Quote form ----- */
 .quote-form { display: grid; gap: 14px; max-width: 760px; margin: 0 auto; }
 @media (min-width: 640px) { .quote-form { grid-template-columns: 1fr 1fr; } .quote-form .full { grid-column: 1 / -1; } }
-.quote-form label { display: flex; flex-direction: column; gap: 6px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.quote-form label { min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .quote-form input, .quote-form select, .quote-form textarea {
+  width: 100%; min-width: 0;
   font: inherit; font-size: .95rem; text-transform: none; letter-spacing: 0; color: var(--white);
   background: var(--bg-card); border: 1px solid var(--line); border-radius: 3px; padding: 12px;
 }
@@ -272,7 +274,7 @@ button { font: inherit; cursor: pointer; }
 
 
 /* ----- Footer ----- */
-.site-footer { background: #0a0a0a; border-top: 1px solid var(--line); padding: 48px 0 90px; }
+.site-footer { background: #0a0a0a; border-top: 1px solid var(--line); padding: 48px 0 70px; }
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 @media (min-width: 860px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } .site-footer { padding-bottom: 32px; } }
 .site-footer h4 { font-size: .8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; }
@@ -281,24 +283,17 @@ button { font: inherit; cursor: pointer; }
 .social { display: flex; gap: 12px; margin-top: 8px; }
 .copyright { text-align: center; font-size: .75rem; color: #666; margin-top: 36px; }
 
-/* ----- Sticky call bar (mobile) ----- */
-/* ----- WhatsApp floating button (bottom-right; sits above the pink call bar on phones) ----- */
-.wa-float {
-  position: fixed; right: 18px; bottom: 18px; z-index: 61;
-  display: flex; align-items: center; gap: 8px;
-  background: #25d366; color: #fff; border-radius: 30px; padding: 12px 18px 12px 14px;
-  font-weight: 800; font-size: .8rem; letter-spacing: .04em; box-shadow: 0 6px 20px rgba(0,0,0,.45);
-  transition: transform .2s;
-}
-.wa-float:hover { transform: translateY(-2px); }
-@media (max-width: 859px) { .wa-float { bottom: 66px; right: 14px; padding: 12px; } .wa-float span { display: none; } }
-
+/* ----- Sticky call bar (phones only) -----
+   One slim line (~38px). nowrap + ellipsis keep it from growing if the phone uses large text. */
 .sticky-call {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
   background: var(--accent); color: #111; text-align: center;
-  font-weight: 800; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; padding: 14px;
+  font-weight: 800; font-size: .78rem; line-height: 1.2; text-transform: uppercase; letter-spacing: .05em;
+  padding: 11px 12px calc(11px + env(safe-area-inset-bottom));
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-@media (min-width: 860px) { /* ----- WhatsApp floating button (bottom-right; sits above the pink call bar on phones) ----- */
+
+/* ----- WhatsApp floating button (bottom-right; sits just above the call bar on phones) ----- */
 .wa-float {
   position: fixed; right: 18px; bottom: 18px; z-index: 61;
   display: flex; align-items: center; gap: 8px;
@@ -307,9 +302,8 @@ button { font: inherit; cursor: pointer; }
   transition: transform .2s;
 }
 .wa-float:hover { transform: translateY(-2px); }
-@media (max-width: 859px) { .wa-float { bottom: 66px; right: 14px; padding: 12px; } .wa-float span { display: none; } }
-
-.sticky-call { display: none; } }
+@media (max-width: 859px) { .wa-float { bottom: 52px; right: 14px; padding: 11px; } .wa-float span { display: none; } }
+@media (min-width: 860px) { .sticky-call { display: none; } }
 
 /* ----- Pink top line on every box, site-wide -----
    Kept last so it wins over each box's own border. New box types: add them to this list. */
