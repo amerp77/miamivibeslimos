@@ -1,0 +1,11 @@
+# Original full-size photos (about 2 MB each). The site uses the small .jpg copies
+# next to them; the originals stay on this computer / OneDrive.
+images/*/*.png
+images/Hero.png
+
+# Local tool folders
+.vercel/
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
