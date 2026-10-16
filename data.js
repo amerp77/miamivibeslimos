@@ -16,7 +16,7 @@ const SITE = {
   phone: '(305) 432-1757',
   tel: '+13054321757',
   whatsapp: '13054321757',                 // digits only, country code first (used for wa.me links)
-  email: 'info@miamivibeslimos.com',       // shown publicly in the footer and on the Terms / Privacy pages
+  email: 'aperwez@ironworldfencing.com',   // shown publicly in the footer and on the Terms / Privacy pages (temporary; switch to a Miami Vibes inbox later)
   bookingEmail: 'aperwez@ironworldfencing.com', // where quote-form requests are delivered (via formsubmit.co)
   instagram: 'https://instagram.com/miamivibes_limos',
   logo: 'images/logo-header.png',          // small copy of images/logo.png (the original from the old site)
