@@ -142,7 +142,7 @@ function cardHTML(car, i) {
       <article class="car" data-tags="${car.tags.join(' ')}" data-i="${i}" data-images='${JSON.stringify(car.images)}'>
         <div class="car-media">
           ${media}
-          <span class="badge">${esc(car.mode)}</span>
+          <span class="badge${car.vip ? ' vip' : ''}">${esc(car.mode)}</span>
         </div>
         <div class="car-info">
           <p class="price${ch ? ' pv-self' : ''}">${car.price}<span>${car.unit}</span></p>${ch ? `
@@ -150,7 +150,9 @@ function cardHTML(car, i) {
           <p class="price pv-chauf">${ch.price}<span>${ch.unit}</span></p>` : ''}
           <h3>${esc(car.name)}</h3>
           <p class="specs">${specs}${car.note ? ` · ${car.note}` : ''}${ch ? `<span class="pv-chauf"> · ${ch.note}</span>` : ''}</p>
-          <a href="#quote" class="reserve" data-vehicle="${esc(car.name)}">Check Availability</a>
+          ${car.vip   // VIP cars: no price shown, the button calls instead of opening the form
+            ? `<a href="tel:${SITE.tel}" class="reserve">Call to Inquire</a>`
+            : `<a href="#quote" class="reserve" data-vehicle="${esc(car.name)}">Check Availability</a>`}
         </div>
       </article>`;
 }

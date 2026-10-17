@@ -7,6 +7,7 @@
    - images: first image is the cover. Leave [] to show a "Photos coming soon" placeholder.
    - tags:   which filter chips the car appears under ('self-drive' or 'chauffeur').
    - mode:   the badge on the photo. specs: short facts under the name.
+   - vip: true hides the price and turns the button into "Call to Inquire" (VIP customers only).
    - chauffeur: optional second rate for a car offered both ways. The Self-Drive view shows only
      the day rate, the With Chauffeur view and chauffeur page only this rate, and 'All' shows both.
    ===================================================================== */
@@ -40,6 +41,21 @@ const LEGAL = [
 const SERVICES = ['Self-drive rental', 'Executive Chauffeur', 'Photo / video shoot', 'Wedding / event'];
 
 const FLEET = [
+  {
+    name: '2025 Ferrari 12Cilindri',
+    vip: true,
+    price: 'VIP Only', unit: ' · Call to inquire',
+    mode: 'VIP Only', tags: ['self-drive'],
+    specs: ['2 seats', '819 hp V12'],
+    images: [
+      'images/Ferrari/ferrari-12cilindri-1.webp',
+      'images/Ferrari/ferrari-12cilindri-2.webp',
+      'images/Ferrari/ferrari-12cilindri-3.webp',
+      'images/Ferrari/ferrari-12cilindri-4.webp',
+      'images/Ferrari/ferrari-12cilindri-5.webp',
+      'images/Ferrari/ferrari-12cilindri-6.webp',
+    ],
+  },
   {
     name: '2024 Lamborghini Revuelto',
     price: '$4,000', unit: '/day',
