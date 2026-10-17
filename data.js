@@ -12,7 +12,7 @@
    ===================================================================== */
 
 const SITE = {
-  domain: 'https://miamivibeslimos.vercel.app',   // sitemap + link previews. Change to https://miamivibeslimos.com when the domain moves to Vercel
+  domain: 'https://miamivibeslimos.com',   // sitemap + link previews
   phone: '(305) 432-1757',
   tel: '+13054321757',
   whatsapp: '13054321757',                 // digits only, country code first (used for wa.me links)

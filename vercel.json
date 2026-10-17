@@ -7,5 +7,102 @@
       "source": "/favicon.ico",
       "destination": "/images/favicon-32.png"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/exotic-cars",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/exotic-cars/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/lamborghini-revuelto",
+      "destination": "/#self-drive",
+      "permanent": true
+    },
+    {
+      "source": "/lamborghini-revuelto/",
+      "destination": "/#self-drive",
+      "permanent": true
+    },
+    {
+      "source": "/2022-lamborghini-urus",
+      "destination": "/#self-drive",
+      "permanent": true
+    },
+    {
+      "source": "/2022-lamborghini-urus/",
+      "destination": "/#self-drive",
+      "permanent": true
+    },
+    {
+      "source": "/rolls-royce-ghost",
+      "destination": "/chauffeur",
+      "permanent": true
+    },
+    {
+      "source": "/rolls-royce-ghost/",
+      "destination": "/chauffeur",
+      "permanent": true
+    },
+    {
+      "source": "/rolls-royce-sprinter-with-chauffeur",
+      "destination": "/chauffeur",
+      "permanent": true
+    },
+    {
+      "source": "/rolls-royce-sprinter-with-chauffeur/",
+      "destination": "/chauffeur",
+      "permanent": true
+    },
+    {
+      "source": "/turn-miami-into-your-runway",
+      "destination": "/shoots",
+      "permanent": true
+    },
+    {
+      "source": "/turn-miami-into-your-runway/",
+      "destination": "/shoots",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/book-now",
+      "destination": "/#quote",
+      "permanent": true
+    },
+    {
+      "source": "/book-now/",
+      "destination": "/#quote",
+      "permanent": true
+    },
+    {
+      "source": "/es",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/es/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/es/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
