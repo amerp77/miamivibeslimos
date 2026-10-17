@@ -100,7 +100,7 @@
       "permanent": true
     },
     {
-      "source": "/es/:path*",
+      "source": "/es/(.*)",
       "destination": "/",
       "permanent": true
     }
