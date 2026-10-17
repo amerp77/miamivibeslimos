@@ -72,7 +72,7 @@ const FLEET = [
   },
   {
     name: '2022 Lamborghini Urus',
-    price: '$1,000', unit: '/day',
+    price: '$1,500', unit: '/day',
     mode: 'Self-Drive', tags: ['self-drive'],
     specs: ['5 seats', '641 hp'],
     images: [                                       // web copies of Urus 1-6.png (originals kept in the same folder)
@@ -86,7 +86,7 @@ const FLEET = [
   },
   {
     name: '2024 Mercedes-Benz S580',
-    price: '$500', unit: '/day',
+    price: '$1,000', unit: '/day',
     chauffeur: { price: '$180', unit: '/hr with driver', note: '4 hr minimum' },   // shown instead of the day rate in chauffeur views
     mode: 'Self-Drive or Chauffeur', tags: ['self-drive', 'chauffeur'],
     specs: ['5 seats', '496 hp'],
@@ -101,8 +101,9 @@ const FLEET = [
   },
   {
     name: '2026 Rolls-Royce Phantom',
-    price: '$1,000', unit: '/hr with driver', note: '4 hr minimum',
-    mode: 'With Chauffeur', tags: ['chauffeur'],
+    vip: true,
+    price: 'VIP Only', unit: ' · Call to inquire',
+    mode: 'VIP Only · Chauffeur', tags: ['chauffeur'],
     specs: ['5 seats', '563 hp'],
     images: [                                       // web copies of Phantom 1-6.png (originals kept in the same folder)
       'images/Phantom/phantom-1.jpg',
